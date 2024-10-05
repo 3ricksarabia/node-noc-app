@@ -1,2 +1,0 @@
-{"message":"Email sent","level":"low","origin":"email.service.ts","createdAt":"2024-10-04T03:22:53.800Z"}
-{"message":"Log email sent","level":"low","origin":"send-email-logs.ts","createdAt":"2024-10-04T03:36:30.899Z"}

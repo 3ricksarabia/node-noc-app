@@ -18,7 +18,7 @@ export class LogEntity {
   public origin: string;
 
   constructor(options: LogEntityOptions) {
-    const { message, level, origin, createdAt = new Date } = options;
+    const { message, level, origin, createdAt = new Date() } = options;
     this.message = message;
     this.level = level;
     this.origin = origin;
@@ -26,8 +26,20 @@ export class LogEntity {
   }
 
   static fromJson = (json: string): LogEntity => {
-    const { message, level, createdAt = new Date, origin } = JSON.parse(json);
+    const { message, level, createdAt = new Date(), origin } = JSON.parse(json);
 
+    const log = new LogEntity({
+      message,
+      level,
+      createdAt,
+      origin,
+    });
+
+    return log;
+  };
+
+  static fromObject = (object: { [key: string]: any }): LogEntity => {
+    const { message, level, createdAt, origin } = object;
     const log = new LogEntity({
       message,
       level,
